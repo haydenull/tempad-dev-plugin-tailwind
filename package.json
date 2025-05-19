@@ -1,0 +1,20 @@
+{
+  "name": "tempad-dev-plugin-tailwind",
+  "version": "1.0.0",
+  "description": "tailwind plugin for teampad-dev",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsup"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "tsup": "^8.5.0",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "@tempad-dev/plugins": "^0.5.0",
+    "transform-to-tailwindcss-core": "^0.0.35"
+  }
+}
