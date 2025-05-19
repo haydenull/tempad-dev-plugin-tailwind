@@ -1,6 +1,6 @@
 {
   "name": "tempad-dev-plugin-tailwind",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "tailwind plugin for teampad-dev",
   "main": "index.js",
   "scripts": {

@@ -1178,13 +1178,19 @@ function toTailwindcss(css, isRem) {
 }
 
 // src/transformToTailwind.ts
-var transformToTailwind = (css, isRem) => {
-  return toTailwindcss(css, isRem);
+var transformToTailwind = (style, isRem) => {
+  return Object.entries(style).map(
+    ([key, value]) => `${key}: ${value.replace(/\/\*.*\*\//g, "").replace(/var\(--[\w-]*,\s*(.*)\)/g, (_, $1) => $1).trim()}`
+  ).map((str) => toTailwindcss(str, isRem)).join(" ");
 };
 var transformToTailwind_default = transformToTailwind;
 
+// package.json
+var version = "0.0.2";
+
 // src/index.ts
-var src_default = definePlugin({
+console.log("tailwind plugin version", version);
+var index_default = definePlugin({
   name: "Tailwind",
   code: {
     css: {
@@ -1192,8 +1198,8 @@ var src_default = definePlugin({
       // Custom code block title
       lang: "css",
       // Custom syntax highlighting language
-      transform({ code, options }) {
-        return transformToTailwind_default(code, options == null ? void 0 : options.useRem);
+      transform({ style, options }) {
+        return transformToTailwind_default(style, options == null ? void 0 : options.useRem);
       }
     },
     js: false
@@ -1201,4 +1207,4 @@ var src_default = definePlugin({
   }
 });
 
-export { src_default as default };
+export { index_default as default };

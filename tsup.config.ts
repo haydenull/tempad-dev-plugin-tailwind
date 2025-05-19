@@ -2,9 +2,10 @@ import { defineConfig } from "tsup";
 import { version } from "./package.json";
 
 export default defineConfig({
-  entry: {
-    [`index-v${version}`]: "src/index.ts",
-  },
+  // entry: {
+  //   [`index-v${version}`]: "src/index.ts",
+  // },
+  entry: ["src/index.ts"],
   splitting: false,
   clean: true,
   sourcemap: false,
