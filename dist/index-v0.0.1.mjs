@@ -1184,7 +1184,7 @@ var transformToTailwind = (css, isRem) => {
 var transformToTailwind_default = transformToTailwind;
 
 // src/index.ts
-var index_default = definePlugin({
+var src_default = definePlugin({
   name: "Tailwind",
   code: {
     css: {
@@ -1201,4 +1201,4 @@ var index_default = definePlugin({
   }
 });
 
-export { index_default as default };
+export { src_default as default };
