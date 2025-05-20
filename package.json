@@ -15,6 +15,6 @@
   },
   "dependencies": {
     "@tempad-dev/plugins": "^0.5.0",
-    "transform-to-tailwindcss-core": "^0.0.35"
+    "transform-to-tailwindcss-core": "^0.0.36"
   }
 }

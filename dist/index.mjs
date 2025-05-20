@@ -3,7 +3,7 @@ function definePlugin(plugin) {
   return plugin;
 }
 
-// node_modules/.pnpm/transform-to-tailwindcss-core@0.0.35/node_modules/transform-to-tailwindcss-core/dist/index.js
+// node_modules/.pnpm/transform-to-tailwindcss-core@0.0.36/node_modules/transform-to-tailwindcss-core/dist/index.js
 var cssMathFnRE = /^(?:calc|clamp|min|max)\s*\(.*\)/;
 var numberWithUnitRE = /^-?[0-9.]+(px|rem|em|%|vw|vh|vmin|vmax|deg|s|ms)$/;
 var positionMap = [
@@ -534,16 +534,17 @@ function font(key, val) {
     ].includes(value)) return `${important}font-size-${value}`;
     return `${important}text${getVal(value)}`;
   }
-  if (key === "font-weight") return `${important}font-${value}`;
+  if (key === "font-weight") return `${important}font-[weight:${value}]`;
   if (key === "font-family") {
     const match = value.match(/ui-(\w{0,4})/);
-    if (!match) return `${important}font-[${joinWithUnderLine(val)}]`;
+    if (!match) return `${important}font-[family-name:${joinWithUnderLine(val)}]`;
     const [_, family] = match;
     return `${important}font-${family}`;
   }
   if (key === "font-style") {
-    if (value === "normal") return `${important}font-not-italic`;
-    return `${important}font-${value}`;
+    if (value === "normal") return `${important}not-italic`;
+    if (value === "italic") return `${important}italic`;
+    return;
   }
   if (key === "font-variant-numeric") {
     if (value === "normal") return `${important}normal-nums`;
